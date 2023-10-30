@@ -1,5 +1,5 @@
 <h1>Les détails du gossip que tu as choisi :</h1>
 <p>Titre du gossip : <%= @gossip.title %><p>
 <p>Contenu du gossip : <%= @gossip.content %></p>
-<p>Auteur du gossip : <%= @gossip.user.first_name %></p>
+<p>Auteur du gossip : <%= link_to @gossip.user.first_name, user_path(@gossip.user) %></p>
 <p>Date de création : <%= @gossip.created_at %></p>

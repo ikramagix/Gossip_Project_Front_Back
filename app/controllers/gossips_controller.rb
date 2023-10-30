@@ -1,5 +1,5 @@
 class GossipsController < ApplicationController
     def show
-    @gossip = Gossip.find(params[:id])
+    @gossip = Gossip.includes(:user).find(params[:id])
     end
   end

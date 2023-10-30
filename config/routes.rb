@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   get 'welcome', to: 'welcome#all_gossips'
 
   get 'gossips/:id', to: 'gossips#show', as: :gossip
+
+  get 'authors/:id', to: 'authors#find_user', as: :user
 end
