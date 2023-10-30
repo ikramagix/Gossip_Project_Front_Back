@@ -1,5 +1,8 @@
-<h1>Les détails du gossip que tu as choisi :</h1>
-<p>Titre du gossip : <%= @gossip.title %><p>
-<p>Contenu du gossip : <%= @gossip.content %></p>
-<p>Auteur du gossip : <%= link_to @gossip.user.first_name, user_path(@gossip.user) %></p>
-<p>Date de création : <%= @gossip.created_at %></p>
+<div class="card text-white bg-primary mb-3">
+<h1 class="text-center">Les détails du gossip que tu as choisi :</h1>
+</div>
+
+<p class="text-center">Titre du gossip : <%= @gossip.title %><p>
+<p class="text-center">Contenu du gossip : <%= @gossip.content %></p>
+<p class="text-center">Auteur du gossip : <%= link_to @gossip.user.first_name, user_path(@gossip.user) %></p>
+<p class="text-center">Date de création : <%= @gossip.created_at %></p>

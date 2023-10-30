@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+ /* Aligning cards in the center */
+ .card {
+    margin: 0 auto; 
+    float: none; 
+    margin-bottom: 10px; 
+}

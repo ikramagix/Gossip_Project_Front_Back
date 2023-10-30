@@ -1,6 +1,8 @@
-<h1>Les détails du profil de <%= @user.first_name %> :</h1>
-<p>Prénom : <%= @user.first_name %></p>
-<p>Nom de famille : <%= @user.last_name %></p>
-<p>Email : <%= @user.email %></p>
-<p>Description : <%= @user.description %></p>
-<p>Age : <%= @user.age %> ans !</p>
+<div class="card text-white bg-primary mb-3">
+<h1 class="text-center">Les détails du profil de <%= @user.first_name %> :</h1>
+</div>
+<p class="text-center">Prénom : <%= @user.first_name %></p>
+<p class="text-center">Nom de famille : <%= @user.last_name %></p>
+<p class="text-center">Email : <%= @user.email %></p>
+<p class="text-center">Description : <%= @user.description %></p>
+<p class="text-center">Age : <%= @user.age %> ans !</p>
