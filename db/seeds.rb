@@ -12,6 +12,8 @@ User.destroy_all
 City.destroy_all
 Gossip.destroy_all
 
+Faker::Config.locale = 'fr'
+
 10.times do 
     City.create(
         name: Faker::Address.city,
@@ -19,7 +21,7 @@ Gossip.destroy_all
     )
 end
 
-10.times do 
+100.times do 
     User.create(
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
@@ -30,10 +32,10 @@ end
     )
 end
 
-10.times do 
+20.times do 
     Gossip.create(
-        title: Faker::Lorem.sentence,
-        content: Faker::Lorem.paragraph(sentence_count: 2),
+        title: Faker::Games::StreetFighter.quote,
+        content: Faker::Quotes::Shakespeare.hamlet_quote,
         user: User.all.sample
     )
 end
