@@ -2,6 +2,8 @@
 <p>Voici les derniers potins :</p>
 <ul>
   <% @gossips.each do |gossip| %>
-    <li><%= "#{gossip.user.first_name}: #{gossip.title}" %></li>
+    
+    <li><%="#{gossip.user.first_name}: #{gossip.title}"%> 
+    <%= link_to "Voir plus de détails", gossip_path(gossip) %></li>
   <% end %>
 </ul>
