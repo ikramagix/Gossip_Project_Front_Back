@@ -21,7 +21,7 @@ Faker::Config.locale = 'fr'
     )
 end
 
-100.times do 
+50.times do 
     User.create(
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
@@ -32,10 +32,10 @@ end
     )
 end
 
-20.times do 
+10.times do 
     Gossip.create(
-        title: Faker::Games::StreetFighter.quote,
-        content: Faker::Quotes::Shakespeare.hamlet_quote,
+        title: Faker::Quotes::Chiquito.term,
+        content: Faker::Quotes::Chiquito.joke,
         user: User.all.sample
     )
 end
