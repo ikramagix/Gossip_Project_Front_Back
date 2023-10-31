@@ -1,0 +1,16 @@
+<form action= <%= gossips_path %> method="POST">
+  <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+  <%= form_tag gossips_path do %>
+    <div class="form-group">
+      <%= label_tag 'Titre du Gossip' %>
+      <%= text_field_tag 'gossip[title]', nil, class: 'form-control' %>
+    </div>
+  
+    <div class="form-group">
+      <%= label_tag 'Contenu du Gossip' %>
+      <%= text_area_tag 'gossip[content]', nil, class: 'form-control' %>
+    </div>
+  
+    <%= submit_tag 'Créer le Gossip', class: 'btn btn-primary' %>
+  <% end %>
+</form>
