@@ -1,0 +1,18 @@
+<div class="card text-white bg-primary mb-3">
+<h1 class="text-center">Bienvenue dans La Gossiperie de Jactastar !</h1>
+</div>
+<h3 class="text-center">Voici les derniers potins : </h3>
+<ul>
+<div class="d-flex flex-wrap">
+  <% @gossips.each do |gossip| %>
+    <div class="card d-inline-block" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">
+          <li><%= "#{gossip.user.first_name}: #{gossip.title}" %></li>
+        </h5>
+        <a class="btn btn-primary" <%= link_to "Voir plus de détails", gossip_path(gossip) %></a>
+      </div>
+    </div>
+  <% end %>
+</div>
+</ul>
