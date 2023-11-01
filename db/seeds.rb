@@ -8,7 +8,6 @@
 
 require 'faker'
 
-
 User.where.not(id: 207).destroy_all
 City.destroy_all
 Gossip.destroy_all
