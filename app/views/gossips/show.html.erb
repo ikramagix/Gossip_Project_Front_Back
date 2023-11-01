@@ -20,5 +20,11 @@
 </div>
 <br>
 <div class="text-center">
+<a type="button" class="btn btn-secondary" <%= link_to "Modifier le gossip", edit_gossip_path(@gossip) %>
+</a>
+</div>
+<br>
+<div class="text-center">
 <%= button_to "Supprimer le gossip", gossip_path, class: 'btn btn-danger', method: :delete %>
 </div>
+

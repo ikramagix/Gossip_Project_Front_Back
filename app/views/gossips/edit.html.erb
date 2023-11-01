@@ -1,0 +1,12 @@
+<%= form_for @gossip do |f| %>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :content %>
+      <%= f.text_area :content %>
+    </div>
+    <%= f.submit "Sauvegarder la modification du potin" %>
+  <% end %>
