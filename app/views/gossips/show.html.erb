@@ -9,22 +9,34 @@
 <p class="text-center">Ville de l'auteur : <%= @gossip.user.city.name %></p>
 <p class="text-center">Date de création du gossip : <%= @gossip.created_at %></p>
 
+<h2 class="text-center"> Les commentaires de ce gossip : </h2>
+<ul class="text-center">
+    <% @gossip.comments.each do |comment|%>
+    <p class="text-center"><%= comment.user.first_name %> a commenté : <%= comment.content%></p>
+    <% end %>
+</ul>
+
 <div class="text-center">
 <a type="button" class="btn btn-primary" <%= link_to "Voir le profil du gossipeur #{@gossip.user.first_name}", user_path(@gossip.user) %>
 </a>
 </div>
+
 <br>
+
 <div class="text-center">
 <a type="button" class="btn btn-primary" <%= link_to "Voir le profil de la ville de #{@gossip.user.city.name}", city_path(@gossip.user.city) %>
 </a>
 </div>
+
 <br>
+
 <div class="text-center">
 <a type="button" class="btn btn-secondary" <%= link_to "Modifier le gossip", edit_gossip_path(@gossip) %>
 </a>
 </div>
+
 <br>
+
 <div class="text-center">
 <%= button_to "Supprimer le gossip", gossip_path, class: 'btn btn-danger', method: :delete %>
 </div>
-
