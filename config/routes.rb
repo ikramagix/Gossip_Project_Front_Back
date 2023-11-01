@@ -8,17 +8,11 @@ Rails.application.routes.draw do
 
   resources :users
 
+  resources :cities, only: [:show]
+
   root 'gossips#index'
 
   get '/team', to: 'presentation#team'
 
   get '/contact', to: 'presentation#contact'
-
-  #get 'welcome/:first_name', to: 'welcome#greet' 
-
-  #get '/gossips', to: 'gossips#index'
-
-  #get 'gossips/:id', to: 'gossips#show', as: :gossip
-
-  #get 'users/:id', to: 'users#find_user', as: :user
 end
