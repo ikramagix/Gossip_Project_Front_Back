@@ -1,3 +1,9 @@
+<% if flash[:alert].present? %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
 <form action= <%= gossips_path %> method="POST">
   <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
   <%= form_tag gossips_path do %>
@@ -12,5 +18,5 @@
     </div>
   
     <%= submit_tag 'Créer le Gossip', class: 'btn btn-primary' %>
-  <% end %>
 </form>
+<% end %>
