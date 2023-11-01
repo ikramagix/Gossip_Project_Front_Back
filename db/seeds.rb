@@ -8,34 +8,34 @@
 
 require 'faker'
 
-User.destroy_all
+User.where.not(id: 207).destroy_all
 City.destroy_all
 Gossip.destroy_all
 
 Faker::Config.locale = 'fr'
 
-10.times do 
+5.times do 
     City.create(
         name: Faker::Address.city,
         zip_code: Faker::Address.zip_code
     )
 end
 
-50.times do 
+5.times do 
     User.create(
         first_name: Faker::Name.first_name,
         last_name: Faker::Name.last_name,
         email: Faker::Internet.email,
-        description: Faker::TvShows::RuPaul.quote,
+        description: Faker::Hacker.say_something_smart,
         age: Faker::Number.between(from: 18, to: 99),
         city: City.all.sample
     )
 end
 
-10.times do 
+5.times do 
     Gossip.create(
-        title: Faker::Quotes::Chiquito.term,
-        content: Faker::Quotes::Chiquito.joke,
+        title: Faker::GreekPhilosophers.name,
+        content: Faker::GreekPhilosophers.quote,
         user: User.all.sample
     )
 end
