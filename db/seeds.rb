@@ -8,6 +8,7 @@
 
 require 'faker'
 
+
 User.where.not(id: 207).destroy_all
 City.destroy_all
 Gossip.destroy_all
@@ -43,6 +44,8 @@ end
 
 20.times do 
     Comment.create(
-        content: Faker::Hacker.say_something_smart
+        content: Faker::Hacker.say_something_smart,
+        user_id: 207,
+        gossip_id: Gossip.all.sample.id
     )
 end
