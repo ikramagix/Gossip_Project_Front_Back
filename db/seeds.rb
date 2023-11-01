@@ -11,6 +11,7 @@ require 'faker'
 User.where.not(id: 207).destroy_all
 City.destroy_all
 Gossip.destroy_all
+Comment.destroy_all
 
 Faker::Config.locale = 'fr'
 
@@ -37,5 +38,11 @@ end
         title: Faker::GreekPhilosophers.name,
         content: Faker::GreekPhilosophers.quote,
         user: User.all.sample
+    )
+end
+
+20.times do 
+    Comment.create(
+        content: Faker::Hacker.say_something_smart
     )
 end
