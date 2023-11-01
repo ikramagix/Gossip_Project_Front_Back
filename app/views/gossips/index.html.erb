@@ -10,7 +10,9 @@
         <h5 class="card-title">
           <li><%= "#{gossip.user.first_name}: #{gossip.title}" %></li>
         </h5>
+        <div class="text-center">
         <a class="btn btn-primary" <%= link_to "Voir plus de détails", gossip_path(gossip) %></a>
+        </div>
       </div>
     </div>
   <% end %>

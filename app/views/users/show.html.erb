@@ -7,3 +7,8 @@
 <p class="text-center">Description : <%= @user.description %></p>
 <p class="text-center">Age : <%= @user.age %> ans</p>
 <p class="text-center">Ville : <%= @user.city.name %></p>
+<div class="text-center">
+<a class="btn btn-primary" <%= link_to "Voir le profil de la ville de #{@user.city.name}", city_path(@user.city) %>
+</a>
+</div>
+<br>
