@@ -12,7 +12,7 @@ class GossipsController < ApplicationController
       @gossip.user = User.find(207)
   
       if @gossip.save
-        flash[:notice] = 'Hourra! Le potin a bien été créé!'
+        flash[:notice] = 'Le potin a bien été créé!'
         redirect_to gossips_path
       else
         flash.now[:alert] = 'Erreur : la création du potin a échoué. Tous les champs de texte sont obligatoires. Le titre doit être entre 3 et 14 caractères maximum.'

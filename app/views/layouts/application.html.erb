@@ -37,12 +37,14 @@
 
   <body>
   <% if flash[:notice].present? %>
-  <div class="alert alert-success">
-    <%= flash[:notice] %>
+  <div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">C'est noté !</h4>
+    <p><%= flash[:notice] %></p>
   </div>
-<% end %>
+  <% end %>
     <%= yield %>
   </body>
   
   <footer class="text-center">© La Gossiperie, tous droits reservés, 2023.</footer>
 </html>
+
