@@ -36,10 +36,10 @@
 </nav>
 
   <body>
-  <% if flash[:notice].present? %>
+  <% if flash[:success].present? %>
   <div class="alert alert-success" role="alert">
     <h4 class="alert-heading">C'est noté !</h4>
-    <p><%= flash[:notice] %></p>
+    <p><%= flash[:success] %></p>
   </div>
   <% end %>
     <%= yield %>
