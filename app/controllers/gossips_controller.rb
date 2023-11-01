@@ -13,10 +13,10 @@ class GossipsController < ApplicationController
   
       if @gossip.save
         flash[:success] = 'Le potin a bien été créé!'
-        redirect_to gossips_path
+        redirect_to gossips_path #redirige et repart à 0
       else
-        flash.now[:alert] = 'Erreur : la création du potin a échoué. Tous les champs de texte sont obligatoires. Le titre doit être entre 3 et 14 caractères maximum.'
-        render 'new'
+        flash.now[:alert] = 'Oh non! La création du potin a échoué. Tous les champs de texte sont obligatoires. Le titre doit être entre 3 et 14 caractères maximum.'
+        render 'new' #redirige mais conserve les infos du @gossip
       end
     end
   
