@@ -1,4 +1,5 @@
 <div class="card text-white bg-primary mb-3">
+
 <h1 class="text-center">Les détails du gossip que tu as choisi :</h1>
 </div>
 
@@ -9,12 +10,15 @@
 <p class="text-center">Date de création du gossip : <%= @gossip.created_at %></p>
 
 <div class="text-center">
-<a class="btn btn-primary" <%= link_to "Voir le profil du gossipeur #{@gossip.user.first_name}", user_path(@gossip.user) %>
+<a type="button" class="btn btn-primary" <%= link_to "Voir le profil du gossipeur #{@gossip.user.first_name}", user_path(@gossip.user) %>
 </a>
 </div>
 <br>
 <div class="text-center">
-<a class="btn btn-primary" <%= link_to "Voir le profil de la ville de #{@gossip.user.city.name}", city_path(@gossip.user.city) %>
+<a type="button" class="btn btn-primary" <%= link_to "Voir le profil de la ville de #{@gossip.user.city.name}", city_path(@gossip.user.city) %>
 </a>
 </div>
 <br>
+<div class="text-center">
+<%= button_to "Supprimer le gossip", gossip_path, class: 'btn btn-danger', method: :delete %>
+</div>
