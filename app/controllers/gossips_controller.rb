@@ -9,12 +9,13 @@ class GossipsController < ApplicationController
 
     def create
       @gossip = Gossip.new(gossip_params)
-      @gossip.user = User.find(201)
+      @gossip.user = User.find(207)
   
       if @gossip.save
-        redirect_to gossips_path, notice: 'Le potin a bien été créé!'
+        flash[:notice] = 'Hourra! Le potin a bien été créé!'
+        redirect_to gossips_path
       else
-        flash.now[:alert] = 'Erreur: Tous les champs de texte sont obligatoires, veillez également à ce que le titre fasse entre 3 à 14 caractères au maximum.'
+        flash.now[:alert] = 'Erreur : la création du potin a échoué. Tous les champs de texte sont obligatoires. Le titre doit être entre 3 et 14 caractères maximum.'
         render 'new'
       end
     end
