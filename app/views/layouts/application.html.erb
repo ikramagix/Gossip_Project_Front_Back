@@ -13,7 +13,7 @@
   </head>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Menu</a>
+  <a class="navbar-brand" href="#">La Gossiperie</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -23,10 +23,10 @@
       <%= link_to "Accueil", root_path, :class =>"nav-link" %>
       </li>
       <li class="nav-item">
-      <%= link_to "Team", team_path, :class =>"nav-link"  %>
+      <%= link_to "L'équipe", team_path, :class =>"nav-link"  %>
       </li>
       <li class="nav-item">
-      <%= link_to "Contact", contact_path, :class =>"nav-link" %>
+      <%= link_to "Contactez-nous", contact_path, :class =>"nav-link" %>
       </li>
       <li class="nav-item">
       <%= link_to "Poster un nouveau gossip en mode anonyme", new_gossip_path, :class =>"nav-link" %>
@@ -36,6 +36,11 @@
 </nav>
 
   <body>
+  <% if flash[:notice].present? %>
+  <div class="alert alert-success">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
     <%= yield %>
   </body>
   
