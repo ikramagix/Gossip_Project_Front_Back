@@ -1,8 +1,9 @@
 <div class="card text-white bg-primary mb-3">
-<h1 class="text-center">Les détails du profil de <%= @user.first_name %> :</h1>
+<h1 class="text-center">Les détails du profil de <%= @user.first_name %> <%= @user.last_name %>:</h1>
 </div>
 <p class="text-center">Prénom : <%= @user.first_name %></p>
 <p class="text-center">Nom de famille : <%= @user.last_name %></p>
 <p class="text-center">Email : <%= @user.email %></p>
 <p class="text-center">Description : <%= @user.description %></p>
-<p class="text-center">Age : <%= @user.age %> ans !</p>
+<p class="text-center">Age : <%= @user.age %> ans</p>
+<p class="text-center">Ville : <%= @user.city.name %></p>
