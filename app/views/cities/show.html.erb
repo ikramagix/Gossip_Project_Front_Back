@@ -1,0 +1,15 @@
+<h1>Ville selectionnée : <%= @city.name %></h1>
+
+<h2>Utilisateurs de cette ville :</h2>
+<ul>
+  <% @users.each do |user| %>
+    <li><%= link_to user.first_name, user_path(user) %></li>
+  <% end %>
+</ul>
+
+<h2>Gossips écrits par les utilisateurs de cette ville :</h2>
+<ul>
+  <% @gossips.each do |gossip| %>
+    <li><%= link_to gossip.title, gossip_path(gossip) %></li>
+  <% end %>
+</ul>
