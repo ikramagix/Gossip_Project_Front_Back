@@ -14,6 +14,8 @@
     <li class="nav-item">
     <%= link_to "Contactez-nous", contact_path, :class =>"nav-link" %>
     </li>
+</div>
+<div class="navbar-nav ml-auto">
     <% if current_user %>
     <li class="nav-item">
     <%= link_to "Poster un nouveau gossip", new_gossip_path, :class =>"nav-link" %>
