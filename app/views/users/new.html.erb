@@ -1,0 +1,24 @@
+
+<h1 class="text-center">Inscrivez-vous à La Gossiperie !</h1>
+
+<%= form_for(@user, url: users_path, html: { class: "form-signin" }) do |f| %>
+    <%= f.label :first_name, "Prénom", class: "sr-only" %>
+    <%= f.text_field :first_name, class: "form-control", placeholder: "Prénom", required: true, autofocus: true %>
+    
+    <%= f.label :last_name, "Nom de famille", class: "sr-only" %>
+    <%= f.text_field :last_name, class: "form-control", placeholder: "Nom de famille", required: true %>
+    
+    <%= f.label :email, "Email", class: "sr-only" %>
+    <%= f.email_field :email, class: "form-control", placeholder: "Email", required: true %>
+    
+    <%= f.label :password, "Mot de passe", class: "sr-only" %>
+    <%= f.password_field :password, class: "form-control", placeholder: "Mot de passe", required: true %>
+    
+    <%= f.label :password_confirmation, "Confirmation du mot de passe", class: "sr-only" %>
+    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirmation du mot de passe", required: true %>
+  
+    <%= f.label :city_id, "Ville", class: "sr-only" %>
+    <%= f.collection_select :city_id, City.all, :id, :name, { include_blank: "Sélectionnez une ville" }, class: "form-control" %>
+    
+    <%= f.submit "S'inscrire", class: "btn btn-lg btn-primary btn-block" %>
+  <% end %>  
