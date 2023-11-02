@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :sessions, only: [:new, :create, :destroy]
+  
   resources :users
 
   resources :cities, only: [:show]
