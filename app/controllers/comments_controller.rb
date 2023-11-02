@@ -1,8 +1,16 @@
 class CommentsController < ApplicationController
-    #def create
-      #@gossip = Gossip.find(params[:gossip_id])
-      #@comment = Comment.new(comment_params)
-      #@comment.user = User.find(207) 
+    def create
+      @gossip = Gossip.find(params[:gossip_id])
+      @comment = Comment.new(comment_params)
+      @comment.user = current_user
+      @comment.gossip = @gossip
+      if @comment.save
+        redirect_to @gossip
+      else
+        flash[:alert] = "Le commentaire n'a pas été posté !"
+        render 'gossip'
+      end
+    end
 
       #if @comment.save
         #flash[:success] = 'Le commentaire a bien été ajouté!'
@@ -31,9 +39,9 @@ class CommentsController < ApplicationController
         #end
       #end
 
-      #private
+      private
 
-      #def comment_params
-        #params.require(:comment).permit(:content, :user_id)
-      #end
+      def comment_params
+        params.require(:comment).permit(:content, :user_id, :gossip_id)
+      end
 end

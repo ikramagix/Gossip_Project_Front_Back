@@ -24,16 +24,15 @@
 <% end %>
 <br>
 
-<%= form_for [@gossip, Comment.new] do |f| %>
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <%= f.hidden_field :user_id, value: 207 %>
+<%= form_with(model: [ @gossip, @gossip.comments.build ], local: true, url: gossip_comments_path(@gossip), method: :post) do |f| %>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <%= f.hidden_field :user_id, value: current_user.id %>
     <div class="form-group">
       <%= f.label :content, "Ajouter un commentaire" %>
       <%= f.text_area :content, class: "form-control" %>
     </div>
     <%= f.submit "Ajouter le commentaire", class: "btn btn-primary" %>
   <% end %>  
-
 <div class="text-center">
 <a type="button" class="btn btn-primary" <%= link_to "Voir le profil du gossipeur #{@gossip.user.first_name}", user_path(@gossip.user) %>
 </a>
