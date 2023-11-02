@@ -1,4 +1,6 @@
 class GossipsController < ApplicationController
+    before_action :require_login, only: [:new, :create]
+
     def show
     @gossip = Gossip.includes(:user).find(params[:id])
     end
@@ -9,8 +11,7 @@ class GossipsController < ApplicationController
 
     def create
       @gossip = Gossip.new(gossip_params)
-      @gossip.user = User.find(207)
-  
+      @gossip.user = current_user
       if @gossip.save
         flash[:success] = 'Le potin a bien été créé!'
         redirect_to gossips_path #redirige et repart à 0
@@ -40,6 +41,13 @@ class GossipsController < ApplicationController
     end
   
     private
+
+    def require_login
+      unless current_user
+        flash[:alert] = "Accès refusé. Vous devez vous connecter pour effectuer cette action."
+        redirect_to new_session_path
+      end
+    end
   
     def gossip_params
       params.require(:gossip).permit(:title, :content)
