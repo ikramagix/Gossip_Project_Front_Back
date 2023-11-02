@@ -12,8 +12,10 @@ class UsersController < ApplicationController
 
         if @user.save
           log_in(@user)
-          redirect_to root_url
+          flash[:success] = "Vous avez bien créé votre compte. Veuillez vous connecter."
+          redirect_to new_session_path
         else
+        flash[:alert] = "La création du compte a échoué, veuillez réessayer."
           render 'new'
         end
     end
