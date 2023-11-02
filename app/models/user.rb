@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    has_secure_password
     validates :email,
     presence: true,
     uniqueness: true,
@@ -6,5 +7,5 @@ class User < ApplicationRecord
     belongs_to :city
     has_many :gossips, dependent: :destroy 
     has_many :comments, dependent: :destroy
-    #si l'utilisateur est supprimé, ses gossips et comments disparaitront avec lui grace à dependent :destroy
+    #si l'utilisateur est supprimé, ses gossips et comments disparaitront avec lui grace à dependent: :destroy
 end
