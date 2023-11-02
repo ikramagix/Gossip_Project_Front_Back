@@ -24,6 +24,7 @@
 <% end %>
 <br>
 
+<% if current_user %>
 <%= form_with(model: [ @gossip, @gossip.comments.build ], local: true, url: gossip_comments_path(@gossip), method: :post) do |f| %>
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <%= f.hidden_field :user_id, value: current_user.id %>
@@ -33,6 +34,7 @@
     </div>
     <%= f.submit "Ajouter le commentaire", class: "btn btn-primary" %>
   <% end %>  
+<% end %>
 <div class="text-center">
 <a type="button" class="btn btn-primary" <%= link_to "Voir le profil du gossipeur #{@gossip.user.first_name}", user_path(@gossip.user) %>
 </a>
@@ -47,6 +49,7 @@
 
 <br>
 
+<% if current_user %>
 <div class="text-center">
 <a type="button" class="btn btn-secondary" <%= link_to "Modifier le gossip", edit_gossip_path(@gossip) %>
 </a>
@@ -57,3 +60,4 @@
 <div class="text-center">
 <%= button_to "Supprimer le gossip", gossip_path, class: 'btn btn-danger', method: :delete %>
 </div>
+<% end %>
