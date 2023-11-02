@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1 class="text-center">Connectez-vous à votre compte</h1>
+      <%= form_for(:session, url: sessions_path, html: { class: "form" }) do |f| %>
+        <div class="form-group">
+          <%= f.label :email, "Email" %>
+          <%= f.email_field :email, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password, "Mot de passe" %>
+          <%= f.password_field :password, class: "form-control" %>
+        </div>
+            <br>
+        <%= f.submit "Se connecter", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<br>
