@@ -15,4 +15,10 @@ class SessionsController < ApplicationController
         render 'new'
     end
   end    
+
+  def destroy 
+    log_out
+    flash[:alert] = "Vous êtes maintenant déconnecté. A bientôt !"
+    redirect_to root_path
+  end
 end
