@@ -32,14 +32,15 @@
       <%= link_to "Poster un nouveau gossip en mode anonyme", new_gossip_path, :class =>"nav-link" %>
       </li>
       <li class="nav-item">
-      <%= link_to "Se connecter", new_session_path, :class =>"nav-link" %>
-      </li>
-      <li class="nav-item">
       <%= link_to "S'inscrire", new_user_path, :class =>"nav-link" %>
       </li>
       <% if current_user %>
       <li class="nav-item ml-auto">
       <%= button_to "Déconnexion", session_path(current_user.id), method: :delete, :class =>"nav-link" %>
+      </li>
+      <% else %>
+      <li class="nav-item ml-auto">
+      <%= link_to "Se connecter", new_session_path, :class =>"nav-link" %>
       </li>
       <% end %>
     </ul>
