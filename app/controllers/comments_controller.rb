@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
         redirect_to @gossip
       else
         flash[:alert] = "Le commentaire n'a pas été posté !"
-        render 'gossip'
+        render @gossip
       end
     end
 
