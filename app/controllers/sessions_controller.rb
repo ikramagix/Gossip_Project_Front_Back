@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     
       if user && user.authenticate(params[:session][:password])
         log_in(user)
+        remember(user)
         flash[:success] = "Vous êtes bien connecté !"
         redirect_to root_path
       else
