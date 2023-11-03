@@ -35,6 +35,7 @@
     <%= f.submit "Ajouter le commentaire", class: "btn btn-primary" %>
   <% end %>  
 <% end %>
+
 <div class="text-center">
 <a type="button" class="btn btn-primary" <%= link_to "Voir le profil du gossipeur #{@gossip.user.first_name}", user_path(@gossip.user) %>
 </a>
@@ -49,6 +50,7 @@
 
 <br>
 
+<% if current_user == @gossip.user %>
 <div class="text-center">
 <a type="button" class="btn btn-secondary" <%= link_to "Modifier le gossip", edit_gossip_path(@gossip) %>
 </a>
@@ -59,3 +61,4 @@
 <div class="text-center">
 <%= button_to "Supprimer le gossip", gossip_path, class: 'btn btn-danger', method: :delete %>
 </div>
+<% end %>
