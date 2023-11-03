@@ -14,11 +14,11 @@ class SessionsController < ApplicationController
       else
         flash[:alert] = "Il y a un problème avec les informations que vous avez entrées, veuillez réessayer."
         render 'new'
+      end    
     end
-  end    
 
   def destroy 
-    log_out
+    log_out(current_user)
     flash[:alert] = "Vous êtes maintenant déconnecté. A bientôt !"
     redirect_to root_path
   end

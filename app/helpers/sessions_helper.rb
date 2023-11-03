@@ -10,23 +10,23 @@ module SessionsHelper
         current_user = User.find_by(id: session[:user_id])
       elsif cookies[:user_id]
         user = User.find_by(id: cookies[:user_id])
-
-      if user
-      remember_token = cookies[:remember_token]
-      remember_digest = user.remember_digest
-      user_authenticated = BCrypt::Password.new(remember_digest).is_password?(remember_token)
-
-      if user_authenticated
-        log_in user
-        current_user = user
+        if user && BCrypt::Password.new(user.remember_digest).is_password?(cookies[:remember_token])
+          log_in user
+          current_user = user
+        end
       end
-
     end
-  end
-end
 
-    def log_out
+    def log_out(user)
       session.delete(:user_id)
+      forget(user)
+    end
+
+    def forget(user)
+      user.update(remember_digest: nil)
+    
+      cookies.delete(:user_id)
+      cookies.delete(:remember_token)
     end
 
     def remember(user)
