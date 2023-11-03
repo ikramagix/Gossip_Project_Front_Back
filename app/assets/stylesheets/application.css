@@ -14,9 +14,46 @@
  *= require_self
  */
 
- /* Aligning cards in the center */
- .card {
-    margin: 0 auto; 
-    float: none; 
-    margin-bottom: 10px; 
+/* Aligning cards in the center */
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+.card {
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+}
+
+.jumbotron {
+  position: relative;
+  background-image: url("https://images.pexels.com/photos/7396374/pexels-photo-7396374.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #fff;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.jumbotron::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1; 
+}
+
+.jumbotron .container h1, .jumbotron .container p {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: bold;
+    position: relative;
+    z-index: 2; 
 }

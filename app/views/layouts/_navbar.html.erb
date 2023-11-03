@@ -1,35 +1,35 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-<a class="navbar-brand" href="#">La Gossiperie</a>
+<a class="navbar-brand" href="#"><%= image_tag('rabbit-3029647_1920.png', alt: 'Logo de La Gossiperie', style: 'max-width: 100px; max-height: 50px;')%></a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
 </button>
 <div class="collapse navbar-collapse" id="navbarNav">
   <ul class="navbar-nav">
-    <li class="nav-item active">
+    <button type="button" class="btn btn-dark btn-floating" data-mdb-ripple-color="light">
     <%= link_to "Accueil", root_path, :class =>"nav-link" %>
-    </li>
-    <li class="nav-item">
+    </button>
+    <button type="button" class="btn btn-dark btn-floating" data-mdb-ripple-color="light">
     <%= link_to "L'équipe", team_path, :class =>"nav-link"  %>
-    </li>
-    <li class="nav-item">
+    </button>
+    <button type="button" class="btn btn-dark btn-floating" data-mdb-ripple-color="light">
     <%= link_to "Contactez-nous", contact_path, :class =>"nav-link" %>
-    </li>
-</div>
+    </button>
+    </div>
 <div class="navbar-nav ml-auto">
     <% if current_user %>
-    <li class="nav-item">
+    <button type="button" class="btn btn-dark btn-floating" data-mdb-ripple-color="light">
     <%= link_to "Poster un nouveau gossip", new_gossip_path, :class =>"nav-link" %>
-    </li>
-    <li class="nav-item ml-auto">
-    <%= button_to "Déconnexion", session_path(current_user.id), method: :delete, :class =>"nav-link" %>
-    </li>
+    </button>
+    <button class="btn btn-danger btn-floating btn-rounded">
+    <%= button_to "Déconnexion", session_path(current_user.id), method: :delete, :class =>"btn btn-danger btn-floating btn-rounded" %>
+    </button>
     <% else %>
-    <li class="nav-item ml-auto">
+    <button type="button" class="btn btn-dark btn-floating" data-mdb-ripple-color="light">
     <%= link_to "Se connecter", new_session_path, :class =>"nav-link" %>
-    </li>
-    <li class="nav-item">
+    </button>
+    <button type="button" class="btn btn-dark btn-floating" data-mdb-ripple-color="light">
     <%= link_to "S'inscrire", new_user_path, :class =>"nav-link" %>
-    </li>
+    </button>
     <% end %>
   </ul>
 </div>

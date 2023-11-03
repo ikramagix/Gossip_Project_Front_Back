@@ -1,26 +1,27 @@
-<div class="mt-4 p-5 bg-primary text-white rounded">
-<div class="jumbotron jumbotron-fluid"
+<div class="jumbotron jumbotron-fluid">
 <div class="container">
-<h1 class="display-4">Bienvenue dans La Gossiperie de Jactastar !</h1>
+<h1 class="display-4">BIENVENUE DANS LA GOSSIPERIE DE JACTASTAR</h1>
+<% if current_user %>
+<% end %>
 <p class="lead">Voici les derniers potins : </p>
-</div>
 </div>
 </div>
 <br>
 
 <ul>
-<div class="d-flex flex-wrap">
-  <% @gossips.each do |gossip| %>
-    <div class="card d-inline-block" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">
-          <li><%= "#{gossip.user.first_name}: #{gossip.title}" %></li>
-        </h5>
-        <div class="text-center">
-        <a class="btn btn-primary" <%= link_to "Voir plus de détails", gossip_path(gossip) %></a>
+  <div class="d-flex flex-wrap">
+    <% @gossips.each do |gossip| %>
+      <div class="card d-inline-block m-2" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= "#{gossip.title}" %>
+            <p class="card-text"> <%="Ajouté par : #{gossip.user.first_name}" %></p>
+          </h5>
+          <div class="text-center">
+            <a class="btn btn-primary" <%= link_to "Voir plus de détails", gossip_path(gossip) %></a>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 </ul>
